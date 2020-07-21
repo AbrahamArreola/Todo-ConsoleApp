@@ -9,10 +9,14 @@ let saveData = () => {
         let data = JSON.stringify(tasks);
 
         fs.writeFile("database/database.json", data, (err) => {
-            if(err)
+            if(err){
                 reject(`Unable to save data:\n${err}`);
-            else
+                return;
+            }
+            else{
                 resolve("Task saved");
+                return;
+            }
         });
     });
 }
@@ -64,9 +68,24 @@ let updateTask = (id, completed) => {
     }
 }
 
+let deleteTask = (id) => {
+    retrieveData();
+
+    let newTasks = tasks.filter((task) => task.id != id);
+
+    if(tasks.length ==  newTasks.length){
+        console.log(`There is no task with id ${id} to delete`.yellow);
+    }
+    else{
+        tasks = newTasks;
+        saveData().then(() => console.log("Task deleted".green)).catch((err) => console.log(err.red));
+    }
+};
+
 module.exports = {
     createTask,
     retrieveData,
     listTasks,
-    updateTask
+    updateTask,
+    deleteTask
 }

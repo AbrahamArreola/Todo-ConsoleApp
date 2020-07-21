@@ -16,9 +16,17 @@ const updateOptions = {
     }
 }
 
+const deleteOptions = {
+    id: {
+        alias: 'i',
+        demand: true
+    }
+}
+
 const argv = require('yargs')
-                    .command("create", "Create to-do task", createOptions)
-                    .command("update", "Update to-do task", updateOptions)
+                    .command("create", "Creates to-do task", createOptions)
+                    .command("update", "Updates to-do task", updateOptions)
+                    .command("delete", "Deletes to-do task", deleteOptions)
                     .help()
                     .argv;
 

@@ -16,6 +16,10 @@ switch(command){
         tasks.listTasks();
     break;
 
+    case "delete":
+        tasks.deleteTask(argv.id);
+    break;
+
     default:
         console.log("Unknown command");
     break;
