@@ -6,8 +6,8 @@ const createOptions = {
 }
 
 const updateOptions = {
-    description: {
-        alias: 'd',
+    id: {
+        alias: 'i',
         demand: true
     },
     completed: {

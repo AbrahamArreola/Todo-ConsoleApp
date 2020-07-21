@@ -1,0 +1,2 @@
+Here is stored the database simulated with a json file for this practice application.
+The file is created when the command 'create' is executed.
